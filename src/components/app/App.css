@@ -1,7 +1,4 @@
 
-
-/* Global Styles */
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -16,13 +13,13 @@
     padding: 40px 0;
 }
 
-/* Body Styles */
+
 
 body {
     background: #080e26;
 }
 
-/* Title Styles */
+
 
 .title {
     width: 100%;
@@ -32,7 +29,7 @@ body {
     background: #3c4773;
 }
 
-/* Options Styles */
+
 
 .options {
     width: 100%;
@@ -91,7 +88,7 @@ body {
     border-radius: 4px;
 }
 
-/* Output Styles */
+
 
 .output {
     width: 100%;
@@ -106,7 +103,7 @@ body {
     line-height: 1.8;
 }
 
-/* Media Queries */
+
 
 @media (max-width: 640px) {
     .title {

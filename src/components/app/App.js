@@ -1,9 +1,44 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import './App.css'
+import Options from "../options";
+import Output from "../output";
 
 const App = () => {
-    return(
-        <h1>Hello world</h1>
+    const [paragraphs, setParagraphs] = useState([]);
+    const [tag, setTag] = useState('p');
+    const [inputValue, setInputValue] = useState(1);
+    const [includeHtml, setIncludeHtml] = useState("Yes")
+    useEffect(() => {
+        const url = `https://baconipsum.com/api/?type=all-meat&paras=${inputValue}&start-with-lorem=1`
+
+        fetch(url)
+            .then(res => res.json())
+            .then(data => setParagraphs(data))
+            .catch(err => console.log(err))
+    }, [inputValue])
+
+
+    return (
+        <div className="App">
+            <div className="container">
+                <div className="title">
+                    <h1>Lorem Ipsum Text Generator</h1>
+                </div>
+                <Options
+                    paragraphs={paragraphs}
+                    tag={tag}
+                    setTag={setTag}
+                    inputValue={inputValue}
+                    setInputValue={setInputValue}
+                    includeHtml={includeHtml}
+                    setIncludeHtml={setIncludeHtml}
+                />
+                <Output paragraphs={paragraphs}
+                        tag={tag}
+                        includeHtml={includeHtml}
+                />
+            </div>
+        </div>
     )
 }
 
